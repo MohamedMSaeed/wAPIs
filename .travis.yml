@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "8.11.2"
+npm:
+ - 4.6.1
+install:
+  - npm install
+cache:
+  directories:
+    - "node_modules"
