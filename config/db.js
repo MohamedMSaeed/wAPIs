@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config({path: './config/.env'});
+require('dotenv').config({path: './config/.env'});
 
 const development = {
   "username": process.env.DEV_DB_USERNAME,

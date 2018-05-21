@@ -1,6 +1,6 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 require('dotenv').config({path: './config/.env'});
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use(cookieParser());
+app.use(morgan('dev'))
 
 require('./routes/index')(app);
 
