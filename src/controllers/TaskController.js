@@ -1,6 +1,6 @@
 const RespondUtil = require('../../utils/RespondUtil');
 const TaskService = require('../services/TaskService');
-const TaskValidator = require('../validators/TaskValidator');
+
 module.exports = {
     list(req, res) {
         let pageNumber = req.query.p;
