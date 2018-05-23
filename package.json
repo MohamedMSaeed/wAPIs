@@ -45,6 +45,7 @@
       "!**/config/**",
       "!**/utils/**",
       "!**/client/**"
-    ]
+    ],
+    "testPathIgnorePatterns": ["/node_modules/", "client"]
   }
 }
