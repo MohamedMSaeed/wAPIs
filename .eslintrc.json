@@ -1,9 +1,15 @@
 {
-    "extends": "airbnb-base",
+    "extends": [
+        "airbnb-base",
+        "plugin:react/recommended"
+    ],
     "env": {
         "jest": true
     },
     "rules": {
         "no-underscore-dangle":"off"
-    }
+    },
+    "plugins": [
+        "react"
+      ]
 }

@@ -12,7 +12,7 @@ module.exports = {
       driver_name: "Marko Pandres",
       courier: "FastWay",
       description: "Deliver a credit card, user must sign",
-      status: "completed",
+      status: "pending",
       driver_comment: ""
     },
     {
@@ -24,7 +24,7 @@ module.exports = {
       driver_name: "Anmol Dares",
       courier: "Wimo",
       description: "Deliver a bank statement",
-      status: "completed",
+      status: "pending",
       driver_comment: ""
     },
     {

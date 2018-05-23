@@ -1,0 +1,19 @@
+#pagination {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 10%;
+    margin-left:auto; 
+    margin-right:auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#pagination td, #pagination th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#pagination tr:nth-child(even){background-color: #f2f2f2;}
+
+#pagination td:hover {background-color: #ddd;}
