@@ -13,6 +13,8 @@ class ListTasksPage extends Component {
     this.sort = this.sort.bind(this);
     this.onChangeSearchInput = this.onChangeSearchInput.bind(this);
     this.search = this.search.bind(this);
+    this.onUpdateStatusClick = this.onUpdateStatusClick.bind(this);
+    this.updateTaskStatus = this.updateTaskStatus.bind(this);
   }
   componentDidMount() {
     TasksApi.listTasks()
@@ -63,11 +65,29 @@ class ListTasksPage extends Component {
     const text = e.target.value;
     this.search(text.toLowerCase());
   }
+  onUpdateStatusClick(taskId, updatedStatus) {
+    TasksApi.updateStatus(taskId, {
+      status: updatedStatus
+    })
+      .then(() => {
+        this.updateTaskStatus(taskId, updatedStatus);
+      }).catch(() => {
+        alert('error updating task');
+      });
+  }
+  updateTaskStatus(taskId, updatedStatus) {
+    const tasks = this.state.originalTasks;
+    const updatedTasks = tasks.map(currentTask => (currentTask.id === taskId ? { ...currentTask, status: updatedStatus } : currentTask));
+    this.setState({
+      originalTasks: updatedTasks,
+      tasks: updatedTasks,
+    });
+  }
   render() {
     return (
             <div id="tasks">
                 <input type="text" id="search" placeholder="Search for Driver Name or Carrier or Status" onInput={this.onChangeSearchInput}/>
-                <ListTasksView tasks={this.state.tasks} totalCount={this.state.count} onSortClick={this.onSortClick}/>
+                <ListTasksView tasks={this.state.tasks} totalCount={this.state.count} onSortClick={this.onSortClick} onUpdateStatusClick={this.onUpdateStatusClick}/>
             </div>
     );
   }

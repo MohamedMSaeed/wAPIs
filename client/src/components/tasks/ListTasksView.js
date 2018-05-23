@@ -2,7 +2,7 @@ import React from 'react';
 import './ListTasksView.css';
 import TaskRow from './TaskRow';
 import Pagination from '../common/Pagination';
-const ListTasksView = ({ tasks, totalCount, onSortClick }) => (
+const ListTasksView = ({ tasks, totalCount, onSortClick, onUpdateStatusClick }) => (
     <div>
     <table>
         <tbody>
@@ -16,7 +16,7 @@ const ListTasksView = ({ tasks, totalCount, onSortClick }) => (
                 <th>Driver Comment</th>
                 <th><a href="#" className="sort-by" onClick={() => onSortClick('deliveryDate')}>Delivery Date</a></th>
             </tr>
-            {tasks.map(task => <TaskRow key={task.id} task={task} />)}
+            {tasks.map(task => <TaskRow key={task.id} task={task} onUpdateStatusClick={onUpdateStatusClick}/>)}
         </tbody>
     </table>
     <Pagination total={totalCount} />
