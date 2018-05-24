@@ -100,7 +100,7 @@ class ListTasksPage extends Component {
   render() {
     return (
             <div id="tasks">
-                <input type="text" id="search" placeholder="Search for Driver Name or Carrier or Status" onInput={this.onChangeSearchInput}/>
+                <input type="search" id="search" placeholder="Search for Driver Name or Carrier or Status" onInput={this.onChangeSearchInput}/>
                 <ListTasksView tasks={this.state.tasks} totalCount={this.state.count} onSortClick={this.onSortClick} onUpdateStatusClick={this.onUpdateStatusClick} showPathOnMap={this.onShowPathOnMapClick}/>
                 {this.state.direction.fromLocation && <MapWithADirectionsRenderer
                   fromLocation={this.state.direction.fromLocation}
