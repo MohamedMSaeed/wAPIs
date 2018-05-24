@@ -1,7 +1,7 @@
 import React from 'react';
 import './ListTasksView.css';
 
-const TaskRow = ({ task, onUpdateStatusClick }) => (
+const TaskRow = ({ task, onUpdateStatusClick, showPathOnMap }) => (
         <tr className="task">
           <td>{task.courier}</td>
           <td>{task.driverName}</td>
@@ -12,6 +12,7 @@ const TaskRow = ({ task, onUpdateStatusClick }) => (
           <td>{task.finishedAt}</td>
           <td>{task.driverComment}</td>
           <td>{task.deliveryDate}</td>
+          <td><button onClick={() => showPathOnMap(task.fromLocation, task.toLocation)}>Show Path</button></td>
         </tr>
 );
 

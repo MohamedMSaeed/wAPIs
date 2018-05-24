@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import TasksApi from './TasksApi';
 import ListTasksView from './ListTasksView';
-
+import MapWithADirectionsRenderer from './MapWithADirectionsRenderer';
 class ListTasksPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      originalTasks: [],
       tasks: [],
       count: 0,
+      direction: {
+        fromLocation: '',
+        toLocation: ''
+      }
     };
     this.onSortClick = this.onSortClick.bind(this);
     this.sort = this.sort.bind(this);
@@ -15,6 +20,7 @@ class ListTasksPage extends Component {
     this.search = this.search.bind(this);
     this.onUpdateStatusClick = this.onUpdateStatusClick.bind(this);
     this.updateTaskStatus = this.updateTaskStatus.bind(this);
+    this.onShowPathOnMapClick = this.onShowPathOnMapClick.bind(this);
   }
   componentDidMount() {
     TasksApi.listTasks()
@@ -67,7 +73,7 @@ class ListTasksPage extends Component {
   }
   onUpdateStatusClick(taskId, updatedStatus) {
     TasksApi.updateStatus(taskId, {
-      status: updatedStatus
+      status: updatedStatus,
     })
       .then(() => {
         this.updateTaskStatus(taskId, updatedStatus);
@@ -83,11 +89,24 @@ class ListTasksPage extends Component {
       tasks: updatedTasks,
     });
   }
+  onShowPathOnMapClick(fromLocation, toLocation) {
+    this.setState({
+      direction: {
+        fromLocation, toLocation,
+      }
+    })
+  }
+
   render() {
     return (
             <div id="tasks">
                 <input type="text" id="search" placeholder="Search for Driver Name or Carrier or Status" onInput={this.onChangeSearchInput}/>
-                <ListTasksView tasks={this.state.tasks} totalCount={this.state.count} onSortClick={this.onSortClick} onUpdateStatusClick={this.onUpdateStatusClick}/>
+                <ListTasksView tasks={this.state.tasks} totalCount={this.state.count} onSortClick={this.onSortClick} onUpdateStatusClick={this.onUpdateStatusClick} showPathOnMap={this.onShowPathOnMapClick}/>
+                {this.state.direction.fromLocation && <MapWithADirectionsRenderer
+                  fromLocation={this.state.direction.fromLocation}
+                  toLocation={this.state.direction.toLocation}
+                />}
+
             </div>
     );
   }
