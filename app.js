@@ -1,19 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-require('dotenv').config({path: './config/.env'});
+require('dotenv').config({ path: './config/.env' });
+
 const app = express();
-
-
 
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({
-    extended: true
+  extended: true,
 }));
 
-app.use(morgan('dev'))
+app.use(morgan('dev'));
 
 require('./routes/index')(app);
 

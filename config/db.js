@@ -1,30 +1,16 @@
-require('dotenv').config({path: './config/.env'});
+require('dotenv').config({ path: './config/.env' });
 
-const development = {
-  "username": process.env.DEV_DB_USERNAME,
-  "password": process.env.DEV_DB_PASSWORD,
-  "database": process.env.DEV_DB_NAME,
-  "host": process.env.DEV_DB_HOST,
-  "dialect": "mysql"
-}
-const test = {
-  "username": process.env.TEST_DB_USERNAME,
-  "password": process.env.TEST_DB_PASSWORD,
-  "database": process.env.TEST_DB_NAME,
-  "host": process.env.TEST_DB_HOST,
-  "dialect": "mysql"
-}
-const production = {
-  "username": process.env.PROD_DB_USERNAME,
-  "password": process.env.PROD_DB_PASSWORD,
-  "database": process.env.PROD_DB_NAME,
-  "host": process.env.PROD_DB_HOST,
-  "dialect": "mysql"
-}
+const config = {
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  host: process.env.DB_HOST,
+  dialect: 'mysql',
+};
 
-
+const development = { ...config };
+const testing = { ...config };
+const production = { ...config };
 module.exports = {
-  development,
-  test,
-  production
-}
+  development, testing, production,
+};

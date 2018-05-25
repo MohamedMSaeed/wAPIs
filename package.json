@@ -1,7 +1,7 @@
 {
   "name": "wapis",
   "version": "1.0.0",
-  "description": "a simple APIs for carrier App",
+  "description": "simple APIs for carrier App",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
