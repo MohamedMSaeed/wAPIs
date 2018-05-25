@@ -1,6 +1,6 @@
 version: '3'
 services:
-  security:
+  wimo:
     build:
       context: .
       dockerfile: ./docker/server/Dockerfile

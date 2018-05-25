@@ -34,7 +34,21 @@ And all of that is done in the front-end basis.
 
 * run docker compose
 
-      docker-compose up
+      docker-compose up --build
 
+* to test the application: `docker run -it wapis_wimo npm test`
+
+* or to run it without docker
+
+* run
+
+      npm install 
+* then install front-end packages to be able to test them
+      cd client && npm install
+* then go back to the app folder by cd .. then:
+
+      npm start
+
+* to test the application without docker: `npm test`
 
 Now open from your browser <http://localhost:3000>
