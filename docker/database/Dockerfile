@@ -1,0 +1,6 @@
+FROM mysql:latest
+
+ENV MYSQL_ROOT_PASSWORD iti  
+ENV MYSQL_DATABASE wimo_db  
+ENV MYSQL_USER root  
+ENV MYSQL_PASSWORD iti

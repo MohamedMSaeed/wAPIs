@@ -9,8 +9,8 @@ const config = {
 };
 
 const development = { ...config };
-const testing = { ...config };
+const test = { ...config };
 const production = { ...config };
 module.exports = {
-  development, testing, production,
+  development, test, production,
 };

@@ -1,0 +1,17 @@
+version: '2'
+services:
+  security:
+    build: ./docker/server
+    ports:
+     - "3000:3000"
+    depends_on:
+     - db
+    environment:
+     - DB_HOST=db
+     - NODE_ENV=development
+     - DB_USERNAME=root
+     - DB_PASSWORD=iti
+     - DB_NAME=wimo_db
+     - PORT=3000
+  db:
+    build: ./docker/database
