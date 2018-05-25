@@ -41,7 +41,7 @@ export default MapWithADirectionsRenderer;
 
 function getDirections(fromLocation, toLocation) {
   const DirectionsService = new google.maps.DirectionsService();
-  const {fromLocationPoints, toLocationPoints} = formatPoints(fromLocation, toLocation);
+  const { fromLocationPoints, toLocationPoints } = formatPoints(fromLocation, toLocation);
 
   DirectionsService.route({
     origin: new google.maps.LatLng(fromLocationPoints[0], fromLocationPoints[1]),
@@ -58,8 +58,8 @@ function getDirections(fromLocation, toLocation) {
   });
 }
 
-function formatPoints(fromLocation, toLocation){
-  const fromLocationPoints = fromLocation.split(',').map(Number)
-  const toLocationPoints = toLocation.split(',').map(Number)
-  return {fromLocationPoints, toLocationPoints};
+function formatPoints(fromLocation, toLocation) {
+  const fromLocationPoints = fromLocation.split(',').map(Number);
+  const toLocationPoints = toLocation.split(',').map(Number);
+  return { fromLocationPoints, toLocationPoints };
 }

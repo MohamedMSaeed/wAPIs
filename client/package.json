@@ -7,7 +7,8 @@
     "react-dom": "^16.3.2",
     "react-google-maps": "^9.4.5",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "recompose": "^0.27.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,6 +35,8 @@
       "node_modules/react/",
       "node_modules/enzyme/"
     ],
-    "setupFiles": ["<rootDir>/src/test/__mocks__/setupTest.js"]
+    "setupFiles": [
+      "<rootDir>/src/test/__mocks__/setupTest.js"
+    ]
   }
 }

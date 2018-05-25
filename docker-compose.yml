@@ -1,7 +1,9 @@
-version: '2'
+version: '3'
 services:
   security:
-    build: ./docker/server
+    build:
+      context: .
+      dockerfile: ./docker/server/Dockerfile
     ports:
      - "3000:3000"
     depends_on:
@@ -13,5 +15,9 @@ services:
      - DB_PASSWORD=iti
      - DB_NAME=wimo_db
      - PORT=3000
+    command: sh -c "sleep 1m && 
+          ./node_modules/sequelize-cli/lib/sequelize db:migrate &&
+          ./node_modules/sequelize-cli/lib/sequelize db:seed:all && 
+          npm start"
   db:
     build: ./docker/database
