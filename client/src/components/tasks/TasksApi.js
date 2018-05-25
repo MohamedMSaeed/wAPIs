@@ -5,11 +5,11 @@ class TasksApi extends ApiBase {
     return this.request('/api/tasks')
       .then(tasks => tasks.data);
   }
-  static updateStatus(taskId, updatedStatus){
+  static updateStatus(taskId, updatedStatus) {
     return this.request(`/api/tasks/${taskId}`, {
       method: 'PUT',
-      body: updatedStatus
-    })
+      body: updatedStatus,
+    });
   }
 }
 

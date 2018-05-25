@@ -11,8 +11,8 @@ class ListTasksPage extends Component {
       count: 0,
       direction: {
         fromLocation: '',
-        toLocation: ''
-      }
+        toLocation: '',
+      },
     };
     this.onSortClick = this.onSortClick.bind(this);
     this.sort = this.sort.bind(this);
@@ -38,8 +38,8 @@ class ListTasksPage extends Component {
   sort(sortBy) {
     const { tasks } = this.state;
     tasks.sort((a, b) => {
-      const taskA = a[sortBy].toUpperCase(); // ignore upper and lowercase
-      const taskB = b[sortBy].toUpperCase(); // ignore upper and lowercase
+      const taskA = a[sortBy].toUpperCase();
+      const taskB = b[sortBy].toUpperCase();
       if (taskA < taskB) {
         return -1;
       }
@@ -76,6 +76,7 @@ class ListTasksPage extends Component {
       status: updatedStatus,
     })
       .then(() => {
+        alert('status updated successfully');
         this.updateTaskStatus(taskId, updatedStatus);
       }).catch(() => {
         alert('error updating task');
